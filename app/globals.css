@@ -18,8 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background:
-    rgb(var(--background-start-rgb));
+  background: #231F20;
   position: relative;
   height: 100vh;
 }
@@ -35,4 +34,72 @@ h1 {
   font-size: 35px;
   font-weight: bold;
   padding: 15px 0;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+  .svg {
+    width: 40px;
+    transform-origin: center;
+    animation: rotate4 2s linear infinite;
+  }
+
+  .circle {
+    fill: none;
+    stroke: white;
+    stroke-width: 3;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash4 1.5s ease-in-out infinite;
+  }
+
+  @keyframes rotate4 {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes dash4 {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+
+    50% {
+      stroke-dasharray: 90, 200;
+      stroke-dashoffset: -35px;
+    }
+
+    100% {
+      stroke-dashoffset: -125px;
+    }
+  }
+
+.image-block {
+  width: 270px;
+  height: 200px;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+
+}
+.image-block:hover {
+  animation: bounce 0.3s ease forwards;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+.selected {
+  color: white;
 }
